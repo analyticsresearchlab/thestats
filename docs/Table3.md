@@ -1,4 +1,4 @@
-#Variables provided in thestats
+# Table 3. Variables provided in {thestats}
 
 |var id  | Variable       |
 |--------|----------------|
