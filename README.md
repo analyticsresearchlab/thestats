@@ -1,1 +1,36 @@
 # thestats Package
+
+thestats, a user-friendly R data package that is intended to make higher education statistics more accessible. The package provides researchers with access to data scraped from the portal And by using it, researchers no longer have to spend additional time digging into the Turkish higher education statistics. It does not only help researchers to query the data but also provides ready-to-use aggregation possibilities. With this, the researchers can easily calculate some statistics on the level of cities and regions.
+
+
+thestats provides three easy-to-use functions: `list_uni()`, `list_dept()`, and `list_score()`. In a nutshell, `list_uni()` function helps to query universities in cities or regions specified by the user. Moreover, the function allows calculating aggregations such as the number of universities per year in cities or regions specified by the user. The function has four arguments: `region_names`, `city_names`, `aggregation` and `lang`. 
+- `region_names` argument is to pass names of the regions shown here(TODO: add table to repo.)
+- `city_names` is for specifying city names, aggregation is to provide the universities in specific regions or cities. 
+- `lang` argument is to select English or Turkish as a language of returned results by the function. Let's assume that the user would like to query universities in Izmir, which is a city in the west part of Turkey:
+
+```r
+R > list_uni(region_names = "all", city_names = "Izmir")
+```
+
+Following example can be used to get the number of universities per type (state or private) in Izmir and Mugla. 
+
+```r
+R > list_uni(region_names = "all", city_names = c("Izmir", 
+             "Mugla"), aggregation = "count_by_city")
+```
+
+list_dept() function helps to query universities, departments in cities or regions. Moreover, it allows calculating aggregations such as the number of universities or the number of universities having specific departments per year in cities or regions specified. The function also has same arguments like `list_uni()`. It allows users to query departments or universities per cities or regions. As shown in the following example, there is a possibility to get universities that have Statistics departments in Izmir and Mugla.
+
+```r
+R > list_dept(region_names = "all", city_names = c("Izmir", 
+              "Mugla"), department_names = "Statistics")
+```
+
+`list_score()` function is for querying detailed statistics about universities at the level of departments, cities, regions. The function has an additional argument is `var_ids` allows users to specify the type of statistics they would like to see as described here (TODO: add table to repo). As shown in the following example, users can pass statistics they want to see to `var_ids` argument. In this example, `X190` refers the number of assistant professors and `X196` refers the number of incoming exchange students. Following the usage of the function, it will return these statistics for the universities which are located in Izmir and have the Statistics department.
+
+```r
+R > list_score(region_names = "all", city_names = "Izmir",
+               university_names = "all",
+               department_names = "Statistics", 
+               var_ids = c("X190", "X196"))
+```
