@@ -1,6 +1,6 @@
 # Table 3. Variables provided in {thestats}
 
-|var id  | Variable       |
+|`var_id`| Variable       |
 |--------|----------------|
 |X0      | university id  |
 |X1      | year|
