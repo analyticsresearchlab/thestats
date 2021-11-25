@@ -42,4 +42,4 @@ list_score(region_names = "all", city_names = "Izmir",
 
 For any questions and feedback, please dont hesitate to contact us via following e-mail adresses:
 - olgun.aydin@pg.edu.pl
-- mustafacavus.eskisehir.edu.tr
+- mustafacavus.eskisehir.edu.tr 
