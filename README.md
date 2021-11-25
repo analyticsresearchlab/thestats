@@ -39,3 +39,7 @@ list_score(region_names = "all", city_names = "Izmir",
                department_names = "Statistics", 
                var_ids = c("X190", "X196"))
 ```
+
+For any questions and feedback, please dont hesitate to contact us via following e-mail adresses:
+- olgun.aydin@pg.edu.pl
+- mustafacavus.eskisehir.edu.tr
