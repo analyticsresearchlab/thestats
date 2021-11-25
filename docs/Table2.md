@@ -1,6 +1,6 @@
 # Table 2. Region and city names in Turkey
 
-| `city`       | `region_name`         |
+| `city_names` | `region_names`        |
 | ------------ | ----------------------|
 | Afyon        | Agean                 |
 | Aydin        | Agean                 |
