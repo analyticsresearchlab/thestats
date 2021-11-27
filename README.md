@@ -1,4 +1,5 @@
-# thestats: An R package for exploring Turkish higher education statistics <p align=right">
+# thestats: An R package for exploring Turkish higher education statistics 
+<p align=right">
     ![]((https://github.com/analyticsresearchlab/thestats/blob/main/man/figures/logo.png)
 </p>
 
