@@ -15,7 +15,7 @@ devtools::install_github("analyticsresearchlab/thestats")
 ## Usage
 
 thestats provides three easy-to-use functions: `list_uni()`, `list_dept()`, and `list_score()`. In a nutshell, `list_uni()` function helps to query universities in cities or regions specified by the user. Moreover, the function allows calculating aggregations such as the number of universities per year in cities or regions specified by the user. The function has four arguments: `region_names`, `city_names`, `aggregation` and `lang`. 
-- `region_names` argument is to pass names of the regions shown in [Table 2](https://github.com/analyticsresearchlab/thestats/blob/main/docs/Table2.md)
+- `region_names` argument is to pass names of the regions shown in [Table 2](https://github.com/analyticsresearchlab/thestats/blob/main/docs/Table2.md).
 - `city_names` is for specifying city names, aggregation is to provide the universities in specific regions or cities. 
 - `lang` argument is to select English or Turkish as a language of returned results by the function. Let's assume that the user would like to query universities in Izmir, which is a city in the west part of Turkey:
 
