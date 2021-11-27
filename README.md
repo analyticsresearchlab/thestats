@@ -49,6 +49,23 @@ list_score(region_names = "all",
            var_ids = c("X190", "X196"))
 ```
 
+
+## Citation
+
+If you use `thestats`, please cite it:
+
+```r
+@misc{Charles2013,
+  author = {Aydin, O. and Cavus, M.},
+  title = {thestats: An R package for exploring Turkish higher education statistics },
+  year = {2021},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/analyticsresearchlab/thestats}}
+}
+```
+
+
 ## Contact
 
 For any questions and feedback, please dont hesitate to contact us via following e-mail adresses:
