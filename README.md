@@ -4,11 +4,15 @@
 
 thestats, a user-friendly R data package that is intended to make higher education statistics more accessible. The package provides researchers with access to data scraped from the portal called [YOKATLAS](https://yokatlas.yok.gov.tr/) and by using it, researchers no longer have to spend additional time digging into the Turkish higher education statistics. It does not only help researchers to query the data but also provides ready-to-use aggregation possibilities. With this, the researchers can easily calculate some statistics on the level of cities and regions.
 
+# Installation
+
 To install the package from the github repo, `devtools` is required and the package can be installed by using following code:
 
 ```r
 devtools::install_github("analyticsresearchlab/thestats")
 ```
+
+# Usage
 
 thestats provides three easy-to-use functions: `list_uni()`, `list_dept()`, and `list_score()`. In a nutshell, `list_uni()` function helps to query universities in cities or regions specified by the user. Moreover, the function allows calculating aggregations such as the number of universities per year in cities or regions specified by the user. The function has four arguments: `region_names`, `city_names`, `aggregation` and `lang`. 
 - `region_names` argument is to pass names of the regions shown here(TODO: add table to repo.)
@@ -44,6 +48,8 @@ list_score(region_names = "all",
            department_names = "Statistics", 
            var_ids = c("X190", "X196"))
 ```
+
+# Contact
 
 For any questions and feedback, please dont hesitate to contact us via following e-mail adresses:
 - olgun.aydin@pg.edu.pl
