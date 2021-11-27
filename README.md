@@ -1,4 +1,4 @@
-<img align="right" width="100" height="100" src="https://github.com/analyticsresearchlab/thestats/blob/main/man/figures/logo.png" alt="thestats: An R package for exploring Turkish higher education statistics">
+<img align="right" width="100" height="120" src="https://github.com/analyticsresearchlab/thestats/blob/main/man/figures/logo.png" alt="thestats: An R package for exploring Turkish higher education statistics">
 
 # thestats: An R package for exploring Turkish higher education statistics 
 
