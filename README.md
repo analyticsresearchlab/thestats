@@ -22,24 +22,27 @@ list_uni(region_names = "all", city_names = "Izmir")
 Following example can be used to get the number of universities per type (state or private) in Izmir and Mugla. 
 
 ```r
-list_uni(region_names = "all", city_names = c("Izmir", 
-             "Mugla"), aggregation = "count_by_city")
+list_uni(region_names = "all", 
+         city_names = c("Izmir", "Mugla"), 
+         aggregation = "count_by_city")
 ```
 
 list_dept() function helps to query universities, departments in cities or regions. Moreover, it allows calculating aggregations such as the number of universities or the number of universities having specific departments per year in cities or regions specified. The function also has same arguments like `list_uni()`. It allows users to query departments or universities per cities or regions. As shown in the following example, there is a possibility to get universities that have Statistics departments in Izmir and Mugla.
 
 ```r
-list_dept(region_names = "all", city_names = c("Izmir", 
-              "Mugla"), department_names = "Statistics")
+list_dept(region_names = "all", 
+          city_names = c("Izmir", "Mugla"), 
+          department_names = "Statistics")
 ```
 
 `list_score()` function is for querying detailed statistics about universities at the level of departments, cities, regions. The function has an additional argument is `var_ids` allows users to specify the type of statistics they would like to see as described here (TODO: add table to repo). As shown in the following example, users can pass statistics they want to see to `var_ids` argument. In this example, `X190` refers the number of assistant professors and `X196` refers the number of incoming exchange students. Following the usage of the function, it will return these statistics for the universities which are located in Izmir and have the Statistics department.
 
 ```r
-list_score(region_names = "all", city_names = "Izmir",
-               university_names = "all",
-               department_names = "Statistics", 
-               var_ids = c("X190", "X196"))
+list_score(region_names = "all", 
+           city_names = "Izmir",
+           university_names = "all",
+           department_names = "Statistics", 
+           var_ids = c("X190", "X196"))
 ```
 
 For any questions and feedback, please dont hesitate to contact us via following e-mail adresses:
