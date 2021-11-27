@@ -15,7 +15,7 @@ devtools::install_github("analyticsresearchlab/thestats")
 ## Usage
 
 thestats provides three easy-to-use functions: `list_uni()`, `list_dept()`, and `list_score()`. In a nutshell, `list_uni()` function helps to query universities in cities or regions specified by the user. Moreover, the function allows calculating aggregations such as the number of universities per year in cities or regions specified by the user. The function has four arguments: `region_names`, `city_names`, `aggregation` and `lang`. 
-- `region_names` argument is to pass names of the regions shown here(TODO: add table to repo.)
+- `region_names` argument is to pass names of the regions shown in [Table 2](https://github.com/analyticsresearchlab/thestats/blob/main/docs/Table2.md)
 - `city_names` is for specifying city names, aggregation is to provide the universities in specific regions or cities. 
 - `lang` argument is to select English or Turkish as a language of returned results by the function. Let's assume that the user would like to query universities in Izmir, which is a city in the west part of Turkey:
 
@@ -39,7 +39,7 @@ list_dept(region_names = "all",
           department_names = "Statistics")
 ```
 
-`list_score()` function is for querying detailed statistics about universities at the level of departments, cities, regions. The function has an additional argument is `var_ids` allows users to specify the type of statistics they would like to see as described here (TODO: add table to repo). As shown in the following example, users can pass statistics they want to see to `var_ids` argument. In this example, `X190` refers the number of assistant professors and `X196` refers the number of incoming exchange students. Following the usage of the function, it will return these statistics for the universities which are located in Izmir and have the Statistics department.
+`list_score()` function is for querying detailed statistics about universities at the level of departments, cities, regions. The function has an additional argument is `var_ids` allows users to specify the type of statistics they would like to see as described in [Table 3](https://github.com/analyticsresearchlab/thestats/blob/main/docs/Table3.md). As shown in the following example, users can pass statistics they want to see to `var_ids` argument. In this example, `X190` refers the number of assistant professors and `X196` refers the number of incoming exchange students. Following the usage of the function, it will return these statistics for the universities which are located in Izmir and have the Statistics department.
 
 ```r
 list_score(region_names = "all", 
