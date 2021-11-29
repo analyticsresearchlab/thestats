@@ -1,15 +1,18 @@
 #' List departments with aggregations
 #'
 #'
-#' @description
+#' @description List universities, departments and faculties based on city, university and region filter.
 #'
-#' @param
-#' @param
+#' @param region_names The region names that you want to get university,department and faculty names for
+#' @param city_names The city names that you want to get university,department and faculty names for
+#' @param university_names The university names that you want to get university get university,department and faculty names for
+#' @param lang  Language option. Default ="en". "en": English, "tr": Turkish
+#' @param aggregation "count_by_region": group sum of universities per each region defined by user.
 #'
 #' @return A data frame
 #'
 #' @examples
-#' dept_names <- list_dept()
+#' dept_names <- list_dept(region_names = "all", city_names = c("Izmir", "Mugla"), department_names = "Statistics")
 
 list_dept <- function(region_names = "all", city_names = "all", university_names = "all", department_names,lang ="en",aggregation)
 {

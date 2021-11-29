@@ -1,10 +1,13 @@
 #' List scores for universities, departments
 #'
 #'
-#' @description
+#' @description List statistics universities, departments and faculties based on city, university and region filter.
 #'
-#' @param
-#' @param
+#' @param region_names The region names that you want to get university,department and faculty names for
+#' @param city_names The city names that you want to get university,department and faculty names for
+#' @param university_names The university names that you want to get university get university,department and faculty names for
+#' @param lang  Language option. Default ="en". "en": English, "tr": Turkish
+#' @param var_ids Statistics defined in Table 3.
 #'
 #' @return A data frame
 #'

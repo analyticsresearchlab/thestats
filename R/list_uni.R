@@ -5,6 +5,7 @@
 #'
 #' @param region_names The region names that you want to get university names for
 #' @param city_names The city names that you want to get university names for
+#' @param aggregation "count_by_city": group sum of universities per each city defined by user. "count_by_region": group sum of universities per each region defined by user.
 #'
 #' @return A data frame
 #'
