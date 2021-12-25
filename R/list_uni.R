@@ -27,39 +27,35 @@ else if(lang == "tr")
 
 if(missing(aggregation))
   {
-    if(region_names == "all" && city_names== "all" )
+    if("all" %in% region_names && "all" %in% city_names )
     {
       result <- regions_cities
     }
-    else if(region_names != "all" && city_names== "all" )
+    else if(!"all" %in% region_names && "all" %in% city_names )
     {
       result <- filter(regions_cities, region %in% region_names)
     }
-    else if(region_names == "all" && city_names!= "all" )
+    else if("all" %in% region_names && !"all" %in% city_names )
     {
       result <- filter(regions_cities, city %in% city_names)
     }
-    else if(region_names == "all" && city_names == "all" )
-    {
-      result <- regions_cities
-    }
-    else if(region_names != "all" && city_names!= "all" )
+    else if(!"all" %in% region_names && !"all" %in% city_names )
     {
       stop("Please set at least one of the arguments as 'all' ")
     }
-    else if(region_names == "" || city_names!= "" )
+    else if(is.null(region_names) == T || is.null(city_names) == T )
     {
       stop("Please provide either region name or city name")
     }
   }
 else
   {
-    if(aggregation == "count_by_city" && region_names == "all" && city_names!= "all")
+    if(aggregation == "count_by_city" && "all" %in% region_names && !"all" %in% city_names)
     {
     filtered_by_city <- filter(regions_cities, city %in% city_names)
     result <- as.data.frame(filtered_by_city %>% group_by(city, type) %>% tally())
     }
-    else if(aggregation == "count_by_region" && region_names != "all" && city_names == "all")
+    else if(aggregation == "count_by_region" && !"all" %in% region_names && "all" %in% city_names)
     {
     filtered_by_region <- filter(regions_cities, region %in% region_names)
     result <- as.data.frame(filtered_by_region %>% group_by(region, type) %>% tally())
