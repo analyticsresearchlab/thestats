@@ -32,41 +32,41 @@ list_dept <- function(region_names = "all", city_names = "all", university_names
     {
       result <- depts
     }
-    else if(region_names != "all" && city_names== "all" && university_names == "all" && department_names == "all")
+    else if(!"all" %in%  region_names &&  "all" %in% city_names  && "all" %in% university_names  &&  "all" %in% department_names)
     {
       regions_unis <- filter(regions_cities, region %in% region_names)
       filtered_depts <- filter(depts, id %in% regions_unis$id)
       result <- filtered_depts
     }
-    else if(region_names == "all" && city_names!= "all" && university_names == "all" && department_names == "all")
+    else if( "all" %in%  region_names && !"all" %in% city_names && "all" %in% university_names && "all" %in% department_names)
     {
       cities_unis <- filter(regions_cities, city %in% city_names)
       filtered_depts <- filter(depts, id %in% cities_unis$id)
       result <- filtered_depts
     }
-    else if(region_names == "all" && city_names == "all" && university_names != "all" && department_names == "all")
+    else if("all" %in%  region_names && "all" %in% city_names && !"all"  %in% university_names  && "all" %in%  department_names)
     {
       filtered_depts <- filter(depts, university %in% university_names)
       result <- filtered_depts
     }
-    else if(region_names == "all" && city_names == "all" && university_names == "all" && department_names != "all")
+    else if("all" %in% region_names && "all" %in% city_names && "all" %in% university_names && !"all" %in% department_names)
     {
       filtered_depts <- filter(depts, grepl(department_names, department, fixed = TRUE))
       result <- filtered_depts
     }
-    else if(region_names != "all" && city_names== "all" && university_names == "all" && department_names != "all")
+    else if(!"all" %in%region_names  && "all" %in% city_names && "all" %in% university_names && !"all" %in% department_names)
     {
       regions_unis <- filter(regions_cities, region %in% region_names)
       filtered_depts <- filter(depts, id %in% regions_unis$id)
-      filtered_depts <- filter(filtered_depts, grepl(department_names, department, fixed = TRUE))
-      result <- filtered_depts
+      filtered_depts_final <- filter(filtered_depts, grepl(department_names, department, fixed = TRUE))
+      result <- filtered_depts_final
     }
-    else if(region_names == "all" && city_names != "all" && university_names == "all" && department_names != "all")
+    else if("all" %in% region_names && !"all" %in% city_names &&  "all" %in% university_names && !"all" %in% department_names )
     {
       cities_unis <- filter(regions_cities, city %in% city_names)
       filtered_depts <- filter(depts, id %in% cities_unis$id)
-      filtered_depts <- filter(filtered_depts, grepl(department_names, department, fixed = TRUE))
-      result <- filtered_depts
+      filtered_depts_final <- filter(filtered_depts, grepl(department_names, department, fixed = TRUE))
+      result <- filtered_depts_final
     }
     else
     {
