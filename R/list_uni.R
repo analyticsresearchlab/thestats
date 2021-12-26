@@ -18,18 +18,18 @@ list_uni <- function(region_names ="all", city_names="all", aggregation, lang = 
 
 if(lang == "en")
 {
-  regions_cities<- data(regions_cities_en)
+  regions_cities<- regions_cities_en
 }
 else if(lang == "tr")
 {
-  regions_cities<- data(regions_cities)
+  regions_cities<- regions_cities
 }
 
 if(missing(aggregation))
   {
     if("all" %in% region_names && "all" %in% city_names )
     {
-      result <- data(regions_cities)
+      result <- regions_cities
     }
     else if(!"all" %in% region_names && "all" %in% city_names )
     {

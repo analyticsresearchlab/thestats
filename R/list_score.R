@@ -19,15 +19,15 @@ list_score <- function(region_names = "all", city_names = "all", university_name
 
   if(lang == "en")
   {
-    regions_cities<- data(regions_cities_en)
-    scores_selected_en <- subset(data(scores_en),select = var_ids)
-    scores <- data.frame(data(depts_en),scores_selected_en)
+    regions_cities<- regions_cities_en
+    scores_selected_en <- subset(scores_en,select = var_ids)
+    scores <- data.frame(depts_en,scores_selected_en)
   }
   else if(lang == "tr")
   {
-    regions_cities<- data(regions_cities)
-    scores_selected_tr <- subset(data(scores),select = var_ids)
-    scores <- data.frame(data(depts),scores_selected_tr)
+    regions_cities<- regions_cities
+    scores_selected_tr <- subset(scores,select = var_ids)
+    scores <- data.frame(depts,scores_selected_tr)
   }
     if("all" %in% region_names && "all" %in% city_names && "all" %in% university_names && "all" %in% department_names)
     {

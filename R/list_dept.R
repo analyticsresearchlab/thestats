@@ -18,19 +18,19 @@ list_dept <- function(region_names = "all", city_names = "all", university_names
 {
   if(lang == "en")
   {
-    regions_cities<- data(regions_cities_en)
-    depts <- data(depts_en)
+    regions_cities<- regions_cities_en
+    depts <- depts_en
   }
   else if(lang == "tr")
   {
-    regions_cities<- data(regions_cities)
-    depts <- data(depts)
+    regions_cities<- regions_cities
+    depts <- depts
   }
   if(missing(aggregation))
   {
     if(region_names == "all" && "all" %in% city_names && "all" %in% university_names && "all" %in% department_names)
     {
-      result <- data(depts)
+      result <- depts
     }
     else if(!"all" %in%  region_names &&  "all" %in% city_names  && "all" %in% university_names  &&  "all" %in% department_names)
     {
