@@ -18,19 +18,19 @@ list_dept <- function(region_names = "all", city_names = "all", university_names
 {
   if(lang == "en")
   {
-    regions_cities<- regions_cities_en
-    depts <- depts_en
+    regions_cities<- data(regions_cities_en)
+    depts <- data(depts_en)
   }
   else if(lang == "tr")
   {
-    regions_cities<- regions_cities
-    depts <- depts
+    regions_cities<- data(regions_cities)
+    depts <- data(depts)
   }
   if(missing(aggregation))
   {
-    if(region_names == "all" && city_names== "all" && university_names == "all" && department_names == "all")
+    if(region_names == "all" && "all" %in% city_names && "all" %in% university_names && "all" %in% department_names)
     {
-      result <- depts
+      result <- data(depts)
     }
     else if(!"all" %in%  region_names &&  "all" %in% city_names  && "all" %in% university_names  &&  "all" %in% department_names)
     {
@@ -75,7 +75,7 @@ list_dept <- function(region_names = "all", city_names = "all", university_names
   }
   else
   {
-    if(aggregation == "count_by_region" && region_names != "all" && city_names == "all" && university_names == "all" && department_names == "all")
+    if(aggregation == "count_by_region" && region_names != "all" && "all" %in% city_names && "all" %in% university_names && "all" %in% department_names)
     {
       filtered_by_region <- filter(regions_cities, region %in% region_names)
       result <- as.data.frame(filtered_by_region %>% group_by(city, type) %>% tally())
