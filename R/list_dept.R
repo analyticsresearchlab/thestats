@@ -28,7 +28,7 @@ list_dept <- function(region_names = "all", city_names = "all", university_names
   }
   if(missing(aggregation))
   {
-    if(region_names == "all" && "all" %in% city_names && "all" %in% university_names && "all" %in% department_names)
+    if("all" %in% region_names && "all" %in% city_names && "all" %in% university_names && "all" %in% department_names)
     {
       result <- depts
     }
@@ -63,8 +63,8 @@ list_dept <- function(region_names = "all", city_names = "all", university_names
     }
     else if("all" %in% region_names && !"all" %in% city_names &&  "all" %in% university_names && !"all" %in% department_names )
     {
-      cities_unis <- filter(regions_cities, city %in% city_names)
-      filtered_depts <- filter(depts, id %in% cities_unis$id)
+      cities_unis <- filter(regions_cities,  city %in% city_names  )
+      filtered_depts <- filter(depts, id %in% cities_unis$id  )
       filtered_depts_final <- filter(filtered_depts, grepl(department_names, department, fixed = TRUE))
       result <- filtered_depts_final
     }
@@ -75,7 +75,7 @@ list_dept <- function(region_names = "all", city_names = "all", university_names
   }
   else
   {
-    if(aggregation == "count_by_region" && region_names != "all" && "all" %in% city_names && "all" %in% university_names && "all" %in% department_names)
+    if(aggregation == "count_by_region" && !"all" %in% region_names  && "all" %in% city_names && "all" %in% university_names && "all" %in% department_names)
     {
       filtered_by_region <- filter(regions_cities, region %in% region_names)
       result <- as.data.frame(filtered_by_region %>% group_by(city, type) %>% tally())
