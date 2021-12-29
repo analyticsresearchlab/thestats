@@ -14,11 +14,13 @@ list_dept(
 )
 }
 \arguments{
-\item{region_names}{The region names that you want to get university,department and faculty names for}
+\item{region_names}{The region names that you want to get university,department and faculty names for.}
 
-\item{city_names}{The city names that you want to get university,department and faculty names for}
+\item{city_names}{The city names that you want to get university,department and faculty names for.}
 
-\item{university_names}{The university names that you want to get university get university,department and faculty names for}
+\item{university_names}{The university names that you want to get department and faculty names for.}
+
+\item{department_names}{The department names that.}
 
 \item{lang}{Language option. Default ="en". "en": English, "tr": Turkish}
 
@@ -31,5 +33,7 @@ A data frame
 List universities, departments and faculties based on city, university and region filter.
 }
 \examples{
-dept_names <- list_dept(region_names = "all", city_names = c("Izmir", "Mugla"), department_names = "Statistics")
+dept_names <- list_dept(region_names = "all", 
+city_names = c("Izmir", "Mugla"), 
+department_names = "Statistics")
 }

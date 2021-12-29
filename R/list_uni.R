@@ -6,16 +6,22 @@
 #' @param region_names The region names that you want to get university names for
 #' @param city_names The city names that you want to get university names for
 #' @param aggregation "count_by_city": group sum of universities per each city defined by user. "count_by_region": group sum of universities per each region defined by user.
+#' @param lang  Language option. Default ="en". "en": English, "tr": Turkish
 #'
 #' @return A data frame
 #'
 #' @examples
-#' uni_names <- list_uni(region_names = "all",city_names = c("IZMIR","MUGLA"),aggregation = "count_by_city")
+#' uni_names <- list_uni(region_names = "all",
+#' city_names = c("IZMIR","MUGLA"),
+#' aggregation = "count_by_city")
 
 
 list_uni <- function(region_names ="all", city_names="all", aggregation, lang = "en")
 {
 
+data("regions_cities_en",envir = environment())
+data("regions_cities",envir = environment())
+  
 if(lang == "en")
 {
   regions_cities<- regions_cities_en

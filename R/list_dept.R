@@ -3,26 +3,33 @@
 #'
 #' @description List universities, departments and faculties based on city, university and region filter.
 #'
-#' @param region_names The region names that you want to get university,department and faculty names for
-#' @param city_names The city names that you want to get university,department and faculty names for
-#' @param university_names The university names that you want to get university get university,department and faculty names for
+#' @param region_names The region names that you want to get university,department and faculty names for.
+#' @param city_names The city names that you want to get university,department and faculty names for.
+#' @param university_names The university names that you want to get department and faculty names for.
+#' @param department_names The department names that.
 #' @param lang  Language option. Default ="en". "en": English, "tr": Turkish
 #' @param aggregation "count_by_region": group sum of universities per each region defined by user.
 #'
 #' @return A data frame
 #'
 #' @examples
-#' dept_names <- list_dept(region_names = "all", city_names = c("Izmir", "Mugla"), department_names = "Statistics")
+#' dept_names <- list_dept(region_names = "all", 
+#' city_names = c("Izmir", "Mugla"), 
+#' department_names = "Statistics")
 
 list_dept <- function(region_names = "all", city_names = "all", university_names = "all", department_names,lang ="en",aggregation)
 {
   if(lang == "en")
   {
+    data("regions_cities_en",envir = environment())
+    data("depts_en",envir = environment())
     regions_cities<- regions_cities_en
     depts <- depts_en
   }
   else if(lang == "tr")
   {
+    data("regions_cities",envir = environment())
+    data("depts",envir = environment())
     regions_cities<- regions_cities
     depts <- depts
   }

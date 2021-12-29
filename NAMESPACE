@@ -8,3 +8,5 @@ exportPattern(".")
 import(
   dplyr
 )
+
+importFrom("utils", "data")

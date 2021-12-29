@@ -20,6 +20,8 @@ list_score(
 
 \item{university_names}{The university names that you want to get university get university,department and faculty names for}
 
+\item{department_names}{The department names that.}
+
 \item{lang}{Language option. Default ="en". "en": English, "tr": Turkish}
 
 \item{var_ids}{Statistics defined in Table 3.}
@@ -31,5 +33,7 @@ A data frame
 List statistics universities, departments and faculties based on city, university and region filter.
 }
 \examples{
-list_score(region_names = "all", city_names = "all", university_names = "all", department_names="all", lang = "en", var_ids=c("X10","X11"))
+list_score(region_names = "all", city_names = "all", 
+university_names = "all", department_names="all", 
+lang = "en", var_ids=c("X10","X11"))
 }

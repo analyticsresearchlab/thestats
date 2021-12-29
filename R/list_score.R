@@ -6,17 +6,27 @@
 #' @param region_names The region names that you want to get university,department and faculty names for
 #' @param city_names The city names that you want to get university,department and faculty names for
 #' @param university_names The university names that you want to get university get university,department and faculty names for
+#' @param department_names The department names that.
 #' @param lang  Language option. Default ="en". "en": English, "tr": Turkish
 #' @param var_ids Statistics defined in Table 3.
 #'
 #' @return A data frame
 #'
 #' @examples
-#' list_score(region_names = "all", city_names = "all", university_names = "all", department_names="all", lang = "en", var_ids=c("X10","X11"))
+#' list_score(region_names = "all", city_names = "all", 
+#' university_names = "all", department_names="all", 
+#' lang = "en", var_ids=c("X10","X11"))
 
 list_score <- function(region_names = "all", city_names = "all", university_names = "all", department_names, lang = "en", var_ids)
 {
+  data("regions_cities_en",envir = environment())
+  data("regions_cities", envir = environment())
+  data("depts_en",envir = environment())
+  data("depts", envir = environment())
+  data("scores_en", envir = environment())
+  data("scores", envir = environment())
 
+  
   if(lang == "en")
   {
     regions_cities<- regions_cities_en

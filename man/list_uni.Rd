@@ -12,6 +12,8 @@ list_uni(region_names = "all", city_names = "all", aggregation, lang = "en")
 \item{city_names}{The city names that you want to get university names for}
 
 \item{aggregation}{"count_by_city": group sum of universities per each city defined by user. "count_by_region": group sum of universities per each region defined by user.}
+
+\item{lang}{Language option. Default ="en". "en": English, "tr": Turkish}
 }
 \value{
 A data frame
@@ -20,5 +22,7 @@ A data frame
 List universities and types of them based on city and region filter
 }
 \examples{
-uni_names <- list_uni(region_names = "all",city_names = c("IZMIR","MUGLA"),aggregation = "count_by_city")
+uni_names <- list_uni(region_names = "all",
+city_names = c("IZMIR","MUGLA"),
+aggregation = "count_by_city")
 }
