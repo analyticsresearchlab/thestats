@@ -15,12 +15,13 @@
 #' city_names = c("IZMIR","MUGLA"),
 #' aggregation = "count_by_city")
 
+data("regions_cities_en",envir = environment())
+data("regions_cities",envir = environment())
+
+globalVariables(c(names(regions_cities),c(names(regions_cities_en))))
 
 list_uni <- function(region_names ="all", city_names="all", aggregation, lang = "en")
 {
-
-data("regions_cities_en",envir = environment())
-data("regions_cities",envir = environment())
   
 if(lang == "en")
 {

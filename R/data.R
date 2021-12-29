@@ -1,6 +1,3 @@
-#' @importFrom tibble tibble
-NULL
-
 #' Information in Turkish about universities in Turkey.
 #'
 #' A dataset containing region, city, type and website information in Turkish for 198 universties in Turkey .

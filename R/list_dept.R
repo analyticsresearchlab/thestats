@@ -17,19 +17,26 @@
 #' city_names = c("Izmir", "Mugla"), 
 #' department_names = "Statistics")
 
+data("regions_cities",envir = environment())
+data("depts",envir = environment())
+data("regions_cities_en",envir = environment())
+data("depts_en",envir = environment())
+
+globalVariables(c(names(regions_cities),
+                  c(names(regions_cities_en)),
+                  c(names(depts)),
+                  c(names(depts_en))))
+
 list_dept <- function(region_names = "all", city_names = "all", university_names = "all", department_names,lang ="en",aggregation)
 {
   if(lang == "en")
   {
-    data("regions_cities_en",envir = environment())
-    data("depts_en",envir = environment())
     regions_cities<- regions_cities_en
     depts <- depts_en
   }
   else if(lang == "tr")
   {
-    data("regions_cities",envir = environment())
-    data("depts",envir = environment())
+
     regions_cities<- regions_cities
     depts <- depts
   }
