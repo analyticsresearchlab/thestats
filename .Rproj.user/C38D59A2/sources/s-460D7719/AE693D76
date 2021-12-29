@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1640519971478.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3793603925",
+    "id" : "AE693D76",
+    "lastKnownWriteTime" : 1640704824,
+    "last_content_update" : 1640704824311,
+    "path" : "~/Desktop/thestats/R/list_score.R",
+    "project_path" : "R/list_score.R",
+    "properties" : {
+        "cursorPosition" : "25,2",
+        "scrollLine" : "18"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

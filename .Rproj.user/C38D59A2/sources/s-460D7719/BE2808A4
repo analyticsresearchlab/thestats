@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1640520310701.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1485156895",
+    "id" : "BE2808A4",
+    "lastKnownWriteTime" : 1640704875,
+    "last_content_update" : 1640704875529,
+    "path" : "~/Desktop/thestats/R/list_dept.R",
+    "project_path" : "R/list_dept.R",
+    "properties" : {
+        "cursorPosition" : "23,3",
+        "scrollLine" : "15"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
