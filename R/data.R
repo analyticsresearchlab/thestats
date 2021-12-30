@@ -14,6 +14,7 @@ NULL
 #'   \item{region}{universitenin yer aldigi sehir ismi - name of the region where the university is located}
 #'   \item{website}{universitenin web adresi - website url of the university}
 #' }
+#' @source {Yokatlas, YOK (Turkish Higher Education Council)}
 "regions_cities"
 
 
@@ -30,6 +31,7 @@ NULL
 #'   \item{region}{name of the region where the university is located}
 #'   \item{website}{website url of the university}
 #' }
+#' @source {Yokatlas, YOK (Turkish Higher Education Council)}
 "regions_cities_en"
 
 
@@ -47,6 +49,7 @@ NULL
 #'   \item{faculty}{fakulte ismi - name of the faculty}
 #'   \item{department}{bolum ismi - name of the department}
 #' }
+#' @source {Yokatlas, YOK (Turkish Higher Education Council)}
 "depts"
 
 #'Information in English about departments, faculties in Turkish universities.
@@ -63,6 +66,7 @@ NULL
 #'   \item{faculty}{name of the faculty}
 #'   \item{department}{name of the department}
 #' }
+#' @source {Yokatlas, YOK (Turkish Higher Education Council)}
 "depts_en"
 
 #'Information in Turkish about departments, faculties in Turkish universities.
@@ -270,4 +274,5 @@ NULL
 #'   \item{X98}{number of placed students from Zonguldak}
 #'   \item{X99}{number of placed students from Aksaray}
 #' }
+#' @source {Yokatlas, YOK (Turkish Higher Education Council)}
 "scores"
