@@ -1,5 +1,6 @@
 #' List departments with aggregations
-#'
+#' 
+#' @name list_dept
 #'
 #' @description List universities, departments and faculties based on city, university and region filter.
 #'

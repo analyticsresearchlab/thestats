@@ -1,5 +1,6 @@
 #' List universities with aggregations
 #'
+#' @name list_uni
 #'
 #' @description List universities and types of them based on city and region filter
 #'

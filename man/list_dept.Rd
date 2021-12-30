@@ -3,16 +3,6 @@
 \name{list_dept}
 \alias{list_dept}
 \title{List departments with aggregations}
-\usage{
-list_dept(
-  region_names = "all",
-  city_names = "all",
-  university_names = "all",
-  department_names,
-  lang = "en",
-  aggregation
-)
-}
 \arguments{
 \item{region_names}{The region names that you want to get university,department and faculty names for.}
 

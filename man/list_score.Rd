@@ -3,16 +3,6 @@
 \name{list_score}
 \alias{list_score}
 \title{List scores for universities, departments}
-\usage{
-list_score(
-  region_names = "all",
-  city_names = "all",
-  university_names = "all",
-  department_names,
-  lang = "en",
-  var_ids
-)
-}
 \arguments{
 \item{region_names}{The region names that you want to get university,department and faculty names for}
 

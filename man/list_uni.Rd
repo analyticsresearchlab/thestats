@@ -3,9 +3,6 @@
 \name{list_uni}
 \alias{list_uni}
 \title{List universities with aggregations}
-\usage{
-list_uni(region_names = "all", city_names = "all", aggregation, lang = "en")
-}
 \arguments{
 \item{region_names}{The region names that you want to get university names for}
 

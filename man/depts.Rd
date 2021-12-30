@@ -16,11 +16,8 @@ A data frame with 25652 rows and 7 variables:
   \item{department}{bolum ismi - name of the department}
 }
 }
-\source{
-\url{https://yokatlas.yok.gov.tr/}
-}
 \usage{
-data(depts)
+depts
 }
 \description{
 A dataset containing type, faculty, deparment information in Turkish for 198 universties in Turkey .

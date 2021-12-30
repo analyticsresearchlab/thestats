@@ -15,11 +15,8 @@ A data frame with 198 rows and 6 variables:
   \item{website}{website url of the university}
 }
 }
-\source{
-\url{https://yokatlas.yok.gov.tr/}
-}
 \usage{
-data(regions_cities_en)
+regions_cities_en
 }
 \description{
 A dataset containing region, city, type and website information in English for 198 universties in Turkey .

@@ -207,11 +207,8 @@ A data frame with 25652 rows and 198 variables:
   \item{X99}{number of placed students from Aksaray}
 }
 }
-\source{
-\url{https://yokatlas.yok.gov.tr/}
-}
 \usage{
-data(scores)
+scores
 }
 \description{
 A dataset containing type, faculty, deparment information and other statistcs in Turkish for 198 universties in Turkey .
