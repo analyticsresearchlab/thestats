@@ -22,7 +22,7 @@ list_score(
 
 \item{department_names}{The department names that.}
 
-\item{lang}{Language option. Default ="en". "en": English, "tr": Turkish}
+\item{lang}{Language option. Default ="en" "en" for English, "tr" for Turkish}
 
 \item{var_ids}{Statistics defined in Table 3.}
 }

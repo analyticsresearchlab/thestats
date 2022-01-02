@@ -8,7 +8,7 @@
 #' @param city_names The city names that you want to get university,department and faculty names for
 #' @param university_names The university names that you want to get university get university,department and faculty names for
 #' @param department_names The department names that.
-#' @param lang  Language option. Default ="en". "en": English, "tr": Turkish
+#' @param lang  Language option. Default ="en" "en" for English, "tr" for Turkish
 #' @param var_ids Statistics defined in Table 3.
 #'
 #' @return A data frame
