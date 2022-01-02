@@ -1,3 +1,4 @@
+# Global script for loading data from /data folder
 data("regions_cities_en",envir = environment())
 data("regions_cities", envir = environment())
 data("depts_en",envir = environment())
