@@ -15,6 +15,9 @@ A data frame with 198 rows and 6 variables:
   \item{website}{website url of the university}
 }
 }
+\source{
+{Yokatlas, YOK (Turkish Higher Education Council)}
+}
 \usage{
 regions_cities_en
 }

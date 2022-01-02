@@ -8,8 +8,8 @@
 #' @param city_names The city names that you want to get university,department and faculty names for.
 #' @param university_names The university names that you want to get department and faculty names for.
 #' @param department_names The department names that.
-#' @param lang  Language option. Default ="en". "en": English, "tr": Turkish
-#' @param aggregation "count_by_region": group sum of universities per each region defined by user.
+#' @param lang  Language option. Default "en", "en" for English, "tr" for Turkish
+#' @param aggregation "count_by_region" for group sum of universities per each region defined by user.
 #'
 #' @return A data frame
 #'
@@ -18,15 +18,6 @@
 #' city_names = c("Izmir", "Mugla"), 
 #' department_names = "Statistics")
 
-data("regions_cities",envir = environment())
-data("depts",envir = environment())
-data("regions_cities_en",envir = environment())
-data("depts_en",envir = environment())
-
-globalVariables(c(names(regions_cities),
-                  c(names(regions_cities_en)),
-                  c(names(depts)),
-                  c(names(depts_en))))
 
 list_dept <- function(region_names = "all", city_names = "all", university_names = "all", department_names,lang ="en",aggregation)
 {

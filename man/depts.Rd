@@ -16,6 +16,9 @@ A data frame with 25652 rows and 7 variables:
   \item{department}{bolum ismi - name of the department}
 }
 }
+\source{
+{Yokatlas, YOK (Turkish Higher Education Council)}
+}
 \usage{
 depts
 }

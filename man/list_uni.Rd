@@ -3,14 +3,17 @@
 \name{list_uni}
 \alias{list_uni}
 \title{List universities with aggregations}
+\usage{
+list_uni(region_names = "all", city_names = "all", aggregation, lang = "en")
+}
 \arguments{
 \item{region_names}{The region names that you want to get university names for}
 
 \item{city_names}{The city names that you want to get university names for}
 
-\item{aggregation}{"count_by_city": group sum of universities per each city defined by user. "count_by_region": group sum of universities per each region defined by user.}
+\item{aggregation}{"count_by_city" for group sum of universities per each city defined by user. "count_by_region": group sum of universities per each region defined by user.}
 
-\item{lang}{Language option. Default ="en". "en": English, "tr": Turkish}
+\item{lang}{Language option. Default "en". "en" for English, "tr" roTurkish}
 }
 \value{
 A data frame
