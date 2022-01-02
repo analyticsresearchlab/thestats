@@ -69,6 +69,10 @@ else
     stop("Please check aggregation, city and region")
     }
   }
+  
+  if(dim(result)[1]==0){
+    warning("Function returned empty dataframe. Please check city, region and university_names, department_names parameters! ")
+  }
 
   return(result)
 }
