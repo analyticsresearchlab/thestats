@@ -55,14 +55,13 @@ list_score(region_names = "all",
 If you use `thestats`, please cite it:
 
 ```
-@misc{thestats,
-  author = {Aydin, O. and Cavus, M.},
-  title = {thestats: An R package for exploring Turkish higher education statistics},
-  year = {2021},
-  publisher = {GitHub},
-  journal = {GitHub repository},
-  howpublished = {\url{https://github.com/analyticsresearchlab/thestats}}
-}
+@Manual{,
+    title = {thestats: R Package for Exploring Turkish Higher Education Statistics},
+    author = {Olgun Aydin and Mustafa Cavus},
+    year = {2022},
+    note = {R package version 0.1.0},
+    url = {https://CRAN.R-project.org/package=thestats},
+  }
 ```
 
 
