@@ -6,6 +6,13 @@ thestats, a user-friendly R data package that is intended to make Turkish higher
 
 ## Installation
 
+To install the package from the CRAN by using following code:
+
+```r
+install.packages("thestats")
+library(thestats)
+```
+
 To install the package from the github repo, `devtools` is required and the package can be installed by using following code:
 
 ```r
