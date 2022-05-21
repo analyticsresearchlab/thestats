@@ -57,9 +57,16 @@ list_score <- function(region_names = "all", city_names = "all", university_name
       filtered_depts <- filter(scores, university %in% university_names)
       result <- filtered_depts
     }
+  
     else if("all" %in% region_names && "all" %in% city_names && "all" %in% university_names && !"all" %in% department_names)
     {
       filtered_depts <- filter(scores, grepl(department_names, department, fixed = TRUE))
+      result <- filtered_depts
+    }
+    else if("all" %in% region_names && "all" %in% city_names && !"all" %in% university_names && !"all" %in% department_names)
+    {
+      filtered_unis <- filter(scores, university %in% university_names)
+      filtered_depts <- filter(filtered_unis, grepl(department_names, department, fixed = TRUE))
       result <- filtered_depts
     }
     else if(!"all" %in% region_names && "all" %in% city_names && "all" %in% university_names && !"all" %in% department_names)
