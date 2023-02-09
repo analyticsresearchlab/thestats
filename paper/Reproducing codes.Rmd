@@ -1,0 +1,167 @@
+---
+title: "Reproducible R codes of the paper 'thestats: An open-data R package for exploring Turkish higher education statistics'"
+author: "Mustafa Cavus and Olgun Aydin"
+date: "2023-01-25"
+output: pdf_document
+---
+
+# Packages
+
+```{r message=FALSE, warning=FALSE}
+# Packages must be installed
+packages <- c("thestats", "dplyr", "ggplot2", "sp", "mapproj", "networkD3",
+              "tidyr", "data.table", "circlize", "RColorBrewer")
+
+# Install packages not yet installed
+installed_packages <- packages %in% rownames(installed.packages())
+if (any(installed_packages == FALSE)) {
+  install.packages(packages[!installed_packages])
+}
+
+# Packages loading
+invisible(lapply(packages, library, character.only = TRUE))
+```
+
+
+# The plot of number of placed students in state universities map by cities (Right side of Fig.7)
+
+```{r}
+data <- list_score(region_names = "all", city_names = "all", university_names = "all", 	  	      		   department_names = "all", var_ids = c("X11", "X12", "X13"),  lang = "en")
+id <- numeric(dim(data)[1])
+for(i in 1:dim(data)[1]){id[i] <- which(grepl(data$id[i], regions_cities_en$id))}
+data_reg_city <- cbind(data, region = regions_cities_en$region[id],  city = regions_cities_en$city[id])
+data_subset <- data_reg_city %>% 
+        mutate(X11 = replace(X11, X11 == "---", NA)) %>%
+        replace(is.na(.), 0) %>% 
+        select(X11, X12, X13) %>% 
+        mutate_if(is.character, as.numeric)
+data_sub_loc <- cbind(data_reg_city[,-c(8:10)], data_subset)
+city_stat <- data_sub_loc  %>% 
+        filter(type == "State") %>% 
+        mutate(total = X11 + X12 + X13) %>%
+        select(city, total, year) %>% 
+        group_by(city, year) %>% 
+        summarise(mean_t = sum(total))
+TUR <- readRDS("gadm36_TUR_1_sp.rds") # The RDS file must be downloaded from https://gadm.org/download_country_v3.html.
+TUR@data$NAME_1 <- gsub("K. Maras", "Kahramanmaras",TUR@data$NAME_1)
+TUR@data$NAME_1 <- gsub("Kinkkale","Kirikkale",TUR@data$NAME_1)
+TUR@data$NAME_1 <- gsub("Zinguldak", "Zonguldak", TUR@data$NAME_1)
+TUR@data$NAME_1 <- gsub("Adıyaman", "Adiyaman", TUR@data$NAME_1)
+city_stat$city <- rep(TUR@data$NAME_1, each = 3)
+tur_for <- fortify(TUR)
+colnames(city_stat) <- c("city", "year", "total")    
+id_and_cities<- tibble(id = rownames(TUR@data), city = TUR@data$NAME_1) %>% 
+        left_join(city_stat, by = "city")
+map1 <- left_join(tur_for, id_and_cities, by = "id")
+ggplot(map1) +
+        geom_polygon(aes(x = long, y = lat, group = group, fill = total), color = "grey") +
+        coord_map() +
+        theme_void() +
+        scale_fill_distiller(name = " Number of Placed Students", palette = "Reds", direction = 1,
+                                      breaks = c(0, 10000, 20000, 30000, 40000, 50000),
+                                      labels = c(0, 10, 20, 30, 40, 50)) +
+       facet_grid(rows = vars(year)) +
+       theme(legend.position = "bottom")
+
+```
+
+
+# The plot of number of placed students map by cities (Left side of Fig.7)
+
+```{r}
+data2 <- list_score(region_names = "all", city_names = "all", university_names = "all",
+                               department_names = "all", var_ids = c("X11", "X12", "X13"), lang = "en")
+id2 <- numeric(dim(data2)[1])
+for(i in 1:dim(data2)[1]){id2[i] <- which(grepl(data2$id[i], regions_cities_en$id)) }
+data2_reg_city <- cbind(data2,  region = regions_cities_en$region[id2],
+		              city = regions_cities_en$city[id2])
+data2_subset <- data2_reg_city %>% 
+        mutate(X11 = replace(X11, X11 == "---", NA)) %>% 
+        replace(is.na(.), 0) %>% 
+        select(X11, X12, X13) %>% 
+        mutate_if(is.character, as.numeric)
+data2_sub_loc <- cbind(data2_reg_city[,-c(8:10)], data2_subset)
+    city_stat2 <- data2_sub_loc  %>% 
+        mutate(total = X11 + X12 + X13) %>%
+        select(city, total, year) %>% 
+        group_by(city, year) %>% 
+        summarise(mean_t = sum(total))
+    city_stat2$city <- rep(TUR@data$NAME_1, each = 3)
+    colnames(city_stat2) <- c("city", "year", "total")
+    id_and_cities2<- tibble(id = rownames(TUR@data),  city = TUR@data$NAME_1) %>% 
+                 left_join(city_stat2, by = "city")
+    map2 <- left_join(tur_for, id_and_cities2, by = "id")
+    ggplot(map2) +
+        geom_polygon(aes(x = long, y = lat, group = group, fill = total), color = "grey") +
+        coord_map() +
+        theme_void() +
+        scale_fill_distiller(name = " Number of Placed Students", palette = "Reds", direction = 1,
+                                      breaks = c(0, 25000, 50000, 75000, 100000),
+                                      labels = c(0, 25, 50, 75, 100)) +
+        facet_grid(rows = vars(year)) +
+        theme(legend.position = "bottom")
+
+```
+
+
+# The plot in the Figure 8    
+
+```{r}
+data <- list_score(region_names = "all", city_names = "all", university_names = "all",
+                                department_names = "all", var_ids = paste("X", seq(32, 112), sep = ""), lang = "en")
+    data_2020 <- data %>% filter(year == "2020")
+    id <- numeric(dim(data_2020)[1])
+    for(i in 1:dim(data_2020)[1]){
+    id[i] <- which(grepl(data_2020$id[i], regions_cities_en$id))}
+    data_2020_reg_city <- cbind(data_2020, region = regions_cities_en$region[id])
+city <- c("Adana", "Adiyaman", "Afyon", "Agri", "Amasya", "Ankara", "Antalya", "Artvin",
+          "Aydin", "Balikesir", "Bilecik", "Bingol", "Bitlis", "Bolu","Burdur",
+          "Bursa", "Canakkale", "Cankiri", "Corum", "Denizli", "Diyarbakir", "Edirne",
+          "Elazig","Erzincan", "Erzurum", "Eskisehir","Gaziantep", "Giresun",
+          "Gumushane", "Hakkari", "Hatay", "Isparta", "Mersin", "Istanbul", "Izmir",
+          "Kars", "Kastamonu", "Kayseri", "Kirklareli", "Kirsehir", "Kocaeli", "Konya",
+          "Kutahya", "Malatya", "Manisa", "Kahramanmaras", "Mardin", "Mugla", "Mus", 	  
+          "Nevsehir", "Nigde", "Ordu", "Rize", "Sakarya", "Samsun", "Siirt", "Sinop", "Sivas", 
+          "Tekirdag", "Tokat", "Trabzon", "Tunceli", "Sanliurfa", "Usak", "Van", "Yozgat", 
+          "Zonguldak", "Aksaray", "Bayburt", "Karaman", "Kirikkale", "Batman", "Sirnak",
+          "Bartin", "Ardahan", "Igdir", "Yalova", "Karabuk", "Kilis", "Osmaniye", "Duzce")
+
+colnames(data_2020_reg_city)[8:88] <- city
+data_flow <- aggregate(.~region,  data = data_2020_reg_city[,8:89], FUN = sum)
+connect <- data_flow %>% pivot_longer(!region, names_to = "from", values_to = "count")
+
+region <- c("Mediterranean", "Southeastern Anatolia", "Agean", "Eastern Anatolia", "Black Sea",
+            "Central Anatolia", "Mediterranean", "Black Sea", "Agean", "Marmara", "Marmara", 	
+            "Eastern Anatolia", "Eastern Anatolia", "Black Sea", "Mediterranean", "Marmara", 	
+            "Marmara", "Central Anatolia", "Black Sea", "Agean", "Southeastern Anatolia", 	   	
+            "Marmara", "Eastern Anatolia", "Eastern Anatolia", "Eastern Anatolia", 
+            "Central Anatolia", 	       
+            "Southeastern Anatolia", "Black Sea", "Black Sea", "Eastern Anatolia", 
+            "Mediterranean", "Mediterranean", "Mediterranean", "Marmara", "Agean", 
+            "Eastern Anatolia", "Black Sea", "Central Anatolia", "Marmara", "Central Anatolia", 
+            "Marmara", "Central Anatolia", "Agean", "Eastern Anatolia", "Agean",  
+            "Mediterranean", "Southeastern Anatolia", "Agean",  "Eastern Anatolia", 
+            "Central Anatolia", "Central Anatolia", "Black Sea", "Black Sea", 
+            "Marmara", "Black Sea",  "Southeastern Anatolia", "Black Sea", "Central Anatolia", 	
+            "Marmara", "Black Sea", "Black Sea", "Eastern Anatolia", "Southeastern Anatolia", 	    	      "Agean", "Eastern Anatolia", "Central Anatolia", "Black Sea", "Central Anatolia", 
+            "Black Sea", "Central Anatolia", "Central Anatolia", "Southeastern Anatolia", 
+            "Southeastern Anatolia", "Black Sea", "Eastern Anatolia", "Eastern Anatolia", 
+            "Marmara", "Black Sea", "Southeastern Anatolia", "Mediterranean", "Black Sea")
+connect$from <- rep(region, 7)
+connect_dt <- data.table(connect)
+connect_dt <- connect_dt[,list(total = sum(count)), by = c('region', 'from')]
+links <- data.frame(connect_dt)
+colnames(links) <- c("target", "source", "value")
+nodes <- data.frame(name =   c(as.character(links$source),  as.character(links$target)) %>% unique())
+links$IDsource <- match(links$target, nodes$name)-1
+links$IDtarget <- match(links$source, nodes$name)-1
+lin <- data.frame(from = links$source,  to = links$target,  value = links$value)
+mycolor <- brewer.pal(7, "Paired")
+pdf(file="circlize.pdf", width=8, height=5, pointsize=8)
+chordDiagram(lin, directional = 1,  direction.type = c("diffHeight", "arrows"), link.arr.type = 	  	           "big.arrow", grid.col = mycolor)
+title("Migration of Freshman students by region in Turkey in 2020")
+legend("right", pch = 15,  legend = unique(lin$from),  col = mycolor,  bty = "n", cex = 1,  pt.cex = 3,  	border = "black") 
+dev.off()
+
+```
+
