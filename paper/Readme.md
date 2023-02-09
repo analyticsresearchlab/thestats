@@ -156,3 +156,4 @@ legend("right", pch = 15,  legend = unique(lin$from),  col = mycolor,  bty = "n"
 dev.off()
 ```
 
+![](https://github.com/mcavs/thestats/blob/main/paper/plot8.png)
