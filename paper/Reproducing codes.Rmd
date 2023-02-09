@@ -26,7 +26,7 @@ invisible(lapply(packages, library, character.only = TRUE))
 # The plot of number of placed students in state universities map by cities (Right side of Fig.7)
 
 ```{r}
-data <- list_score(region_names = "all", city_names = "all", university_names = "all", 	  	      		   department_names = "all", var_ids = c("X11", "X12", "X13"),  lang = "en")
+data <- list_score(region_names = "all", city_names = "all", university_names = "all", department_names = "all", var_ids = c("X11", "X12", "X13"),  lang = "en")
 id <- numeric(dim(data)[1])
 for(i in 1:dim(data)[1]){id[i] <- which(grepl(data$id[i], regions_cities_en$id))}
 data_reg_city <- cbind(data, region = regions_cities_en$region[id],  city = regions_cities_en$city[id])
@@ -143,7 +143,8 @@ region <- c("Mediterranean", "Southeastern Anatolia", "Agean", "Eastern Anatolia
             "Mediterranean", "Southeastern Anatolia", "Agean",  "Eastern Anatolia", 
             "Central Anatolia", "Central Anatolia", "Black Sea", "Black Sea", 
             "Marmara", "Black Sea",  "Southeastern Anatolia", "Black Sea", "Central Anatolia", 	
-            "Marmara", "Black Sea", "Black Sea", "Eastern Anatolia", "Southeastern Anatolia", 	    	      "Agean", "Eastern Anatolia", "Central Anatolia", "Black Sea", "Central Anatolia", 
+            "Marmara", "Black Sea", "Black Sea", "Eastern Anatolia", "Southeastern Anatolia", 
+	    "Agean", "Eastern Anatolia", "Central Anatolia", "Black Sea", "Central Anatolia", 
             "Black Sea", "Central Anatolia", "Central Anatolia", "Southeastern Anatolia", 
             "Southeastern Anatolia", "Black Sea", "Eastern Anatolia", "Eastern Anatolia", 
             "Marmara", "Black Sea", "Southeastern Anatolia", "Mediterranean", "Black Sea")
@@ -158,9 +159,9 @@ links$IDtarget <- match(links$source, nodes$name)-1
 lin <- data.frame(from = links$source,  to = links$target,  value = links$value)
 mycolor <- brewer.pal(7, "Paired")
 pdf(file="circlize.pdf", width=8, height=5, pointsize=8)
-chordDiagram(lin, directional = 1,  direction.type = c("diffHeight", "arrows"), link.arr.type = 	  	           "big.arrow", grid.col = mycolor)
+chordDiagram(lin, directional = 1,  direction.type = c("diffHeight", "arrows"), link.arr.type = "big.arrow", grid.col = mycolor)
 title("Migration of Freshman students by region in Turkey in 2020")
-legend("right", pch = 15,  legend = unique(lin$from),  col = mycolor,  bty = "n", cex = 1,  pt.cex = 3,  	border = "black") 
+legend("right", pch = 15,  legend = unique(lin$from),  col = mycolor,  bty = "n", cex = 1,  pt.cex = 3, border = "black") 
 dev.off()
 
 ```
