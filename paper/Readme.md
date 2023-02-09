@@ -16,6 +16,10 @@ installed_packages <- packages %in% rownames(installed.packages()) if (any(insta
 invisible(lapply(packages, library, character.only = TRUE))
 ```
 
+
+![](https://github.com/mcavs/thestats/blob/main/paper/fig7L.png)
+
+
 ## The plot of number of placed students in state universities map by cities (Right side of Fig.7)
 
 ```
@@ -56,6 +60,8 @@ ggplot(map1) +
        facet_grid(rows = vars(year)) +
        theme(legend.position = "bottom")
 ```
+
+![](https://github.com/mcavs/thestats/blob/main/paper/fig7R.png)
 
 
 ## The plot of number of placed students map by cities (Left side of Fig.7)
@@ -156,4 +162,4 @@ legend("right", pch = 15,  legend = unique(lin$from),  col = mycolor,  bty = "n"
 dev.off()
 ```
 
-![](https://github.com/mcavs/thestats/blob/main/paper/plot8.png)
+![](https://github.com/mcavs/thestats/blob/main/paper/fig8.png)
