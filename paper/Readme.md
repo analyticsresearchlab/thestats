@@ -17,9 +17,6 @@ invisible(lapply(packages, library, character.only = TRUE))
 ```
 
 
-![](https://github.com/mcavs/thestats/blob/main/paper/fig7L.png)
-
-
 ## The plot of number of placed students in state universities map by cities (Fig.7A)
 
 ```
@@ -70,7 +67,7 @@ fig7A <- ggplot(map1) +
 fig7A
 ```
 
-![](https://github.com/mcavs/thestats/blob/main/paper/fig7R.png)
+![](https://github.com/mcavs/thestats/blob/main/paper/fig7A.png)
 
 
 ## The plot of number of placed students map by cities (Fig.7B)
@@ -117,6 +114,8 @@ data2_sub_loc <- cbind(data2_reg_city[,-c(8:10)], data2_subset)
 
 fig7B
 ```
+
+![](https://github.com/mcavs/thestats/blob/main/paper/fig7B.png)
 
 
 ## Combining of the Fig.7A and Fig.7B
