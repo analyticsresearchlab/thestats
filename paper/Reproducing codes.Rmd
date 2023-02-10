@@ -23,10 +23,10 @@ invisible(lapply(packages, library, character.only = TRUE))
 ```
 
 
-# The plot of number of placed students in state universities map by cities (Right side of Fig.7)
+# The plot of number of placed students in state universities map by cities (Fig.7A)
 
 ```{r}
-data <- list_score(region_names = "all", city_names = "all", university_names = "all", department_names = "all", var_ids = c("X11", "X12", "X13"),  lang = "en")
+data <- list_score(region_names = "all", city_names = "all", university_names = "all", 	  	      		   department_names = "all", var_ids = c("X11", "X12", "X13"),  lang = "en")
 id <- numeric(dim(data)[1])
 for(i in 1:dim(data)[1]){id[i] <- which(grepl(data$id[i], regions_cities_en$id))}
 data_reg_city <- cbind(data, region = regions_cities_en$region[id],  city = regions_cities_en$city[id])
@@ -53,20 +53,24 @@ colnames(city_stat) <- c("city", "year", "total")
 id_and_cities<- tibble(id = rownames(TUR@data), city = TUR@data$NAME_1) %>% 
         left_join(city_stat, by = "city")
 map1 <- left_join(tur_for, id_and_cities, by = "id")
-ggplot(map1) +
-        geom_polygon(aes(x = long, y = lat, group = group, fill = total), color = "grey") +
-        coord_map() +
-        theme_void() +
-        scale_fill_distiller(name = " Number of Placed Students", palette = "Reds", direction = 1,
-                                      breaks = c(0, 10000, 20000, 30000, 40000, 50000),
-                                      labels = c(0, 10, 20, 30, 40, 50)) +
-       facet_grid(rows = vars(year)) +
-       theme(legend.position = "bottom")
 
+fig7A <- ggplot(map1) +
+           geom_polygon(aes(x = long, y = lat, group = group, fill = total), color = "grey") +
+           coord_map() +
+           theme_void() +
+           scale_fill_distiller(name = "Number of the\nplaced students\n", 
+	                        palette = "Reds", 
+				direction = 1, 
+				limits = c(0, 100000)) +
+           facet_grid(rows = vars(year)) +
+           theme() + 
+           guides(fill = guide_colourbar(barwidth = 0.5, barheight = 15))
+
+fig7A
 ```
 
 
-# The plot of number of placed students map by cities (Left side of Fig.7)
+# The plot of number of placed students map by cities (Fig.7B)
 
 ```{r}
 data2 <- list_score(region_names = "all", city_names = "all", university_names = "all",
@@ -91,16 +95,39 @@ data2_sub_loc <- cbind(data2_reg_city[,-c(8:10)], data2_subset)
     id_and_cities2<- tibble(id = rownames(TUR@data),  city = TUR@data$NAME_1) %>% 
                  left_join(city_stat2, by = "city")
     map2 <- left_join(tur_for, id_and_cities2, by = "id")
-    ggplot(map2) +
+    
+    fig7B <- ggplot(map2) +
         geom_polygon(aes(x = long, y = lat, group = group, fill = total), color = "grey") +
         coord_map() +
         theme_void() +
-        scale_fill_distiller(name = " Number of Placed Students", palette = "Reds", direction = 1,
-                                      breaks = c(0, 25000, 50000, 75000, 100000),
-                                      labels = c(0, 25, 50, 75, 100)) +
+        scale_fill_distiller(name = "Number of the\nplaced students\n", 
+	                     palette = "Reds", 
+			     direction = 1, 
+			     limits = c(0, 100000)) +
         facet_grid(rows = vars(year)) +
-        theme(legend.position = "bottom")
+        theme() + 
+        guides(fill = guide_colourbar(barwidth = 0.5, barheight = 15))
 
+fig7B
+```
+
+
+# Combining of the Fig.7A and Fig.7B
+
+```
+legend <- get_legend(
+  # create some space to the left of the legend
+  fig7R + theme(legend.box.margin = margin(0, 0, 0, 12))
+)
+
+prow <- plot_grid(fig7A + theme(legend.position="none"), 
+                  fig7B + theme(legend.position="none"), 
+                  align = "h", 
+                  labels = "AUTO")
+
+fig7 <- plot_grid(prow, legend, rel_widths = c(3, .4))
+
+fig7
 ```
 
 
