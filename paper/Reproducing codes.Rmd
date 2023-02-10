@@ -26,7 +26,12 @@ invisible(lapply(packages, library, character.only = TRUE))
 # The plot of number of placed students in state universities map by cities (Fig.7A)
 
 ```{r}
-data <- list_score(region_names = "all", city_names = "all", university_names = "all", 	  	      		   department_names = "all", var_ids = c("X11", "X12", "X13"),  lang = "en")
+data <- list_score(region_names = "all", 
+                   city_names = "all", 
+		   university_names = "all", 
+		   department_names = "all", 
+		   var_ids = c("X11", "X12", "X13"), 
+		   lang = "en")
 id <- numeric(dim(data)[1])
 for(i in 1:dim(data)[1]){id[i] <- which(grepl(data$id[i], regions_cities_en$id))}
 data_reg_city <- cbind(data, region = regions_cities_en$region[id],  city = regions_cities_en$city[id])
@@ -73,8 +78,12 @@ fig7A
 # The plot of number of placed students map by cities (Fig.7B)
 
 ```{r}
-data2 <- list_score(region_names = "all", city_names = "all", university_names = "all",
-                               department_names = "all", var_ids = c("X11", "X12", "X13"), lang = "en")
+data2 <- list_score(region_names = "all", 
+                    city_names = "all", 
+		    university_names = "all",
+		    department_names = "all", 
+		    var_ids = c("X11", "X12", "X13"), 
+		    lang = "en")
 id2 <- numeric(dim(data2)[1])
 for(i in 1:dim(data2)[1]){id2[i] <- which(grepl(data2$id[i], regions_cities_en$id)) }
 data2_reg_city <- cbind(data2,  region = regions_cities_en$region[id2],
