@@ -1,5 +1,10 @@
 <img align="right" width="220" height="240" src="https://github.com/analyticsresearchlab/thestats/blob/main/man/figures/logo.png" alt="thestats: An R package for exploring Turkish higher education statistics">
 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/thestats?color=green)](https://cran.r-project.org/package=thestats)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/thestats?color=green)](https://cran.r-project.org/package=thestats)
+[![](http://cranlogs.r-pkg.org/badges/thestats?color=green)](https://cran.r-project.org/package=thestats)
+[![](http://cranlogs.r-pkg.org/badges/last-week/thestats?color=green)](https://cran.r-project.org/package=thestats)
+
 # thestats: An R package for exploring Turkish higher education statistics 
 
 thestats, a user-friendly R data package that is intended to make Turkish higher education statistics more accessible. The package provides researchers access to data scraped from the portal called [YOKATLAS](https://yokatlas.yok.gov.tr/) and by using it, researchers no longer have to spend additional time digging into the Turkish higher education statistics. It does not only help researchers to query the data but also provides ready-to-use aggregation possibilities. With this, the researchers can easily calculate some statistics on the level of cities and regions.
