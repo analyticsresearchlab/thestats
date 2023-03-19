@@ -1,7 +1,7 @@
 Package: thestats
 Type: Package
 Title: R Package for Exploring Turkish Higher Education Statistics
-Version: 0.1.0
+Version: 0.2.0
 Author: Olgun Aydin, Mustafa Cavus
 Maintainer: Olgun Aydin <olgun.aydin@pg.edu.pl>
 Description: A user-friendly R data package that is intended to make Turkish higher education statistics more accessible. 
