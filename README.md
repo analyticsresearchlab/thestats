@@ -67,7 +67,7 @@ list_score(region_names = "all",
 If you use `thestats`, please cite it:
 
 ```
-@Manual{,
+@article{,
     title = {thestats: An Open-Data R Package for Exploring Turkish Higher Education Statistics},
     author = {Mustafa Cavus and Olgun Aydin},
     year = {2023},
