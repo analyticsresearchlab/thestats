@@ -68,11 +68,15 @@ If you use `thestats`, please cite it:
 
 ```
 @Manual{,
-    title = {thestats: R Package for Exploring Turkish Higher Education Statistics},
-    author = {Olgun Aydin and Mustafa Cavus},
-    year = {2022},
-    note = {R package version 0.1.0},
-    url = {https://CRAN.R-project.org/package=thestats},
+    title = {thestats: An Open-Data R Package for Exploring Turkish Higher Education Statistics},
+    author = {Mustafa Cavus and Olgun Aydin},
+    year = {2023},
+    journal = {Yükseköğretim Dergisi},
+    volume = {13},
+    number = {1},
+    pages = {1--7},
+    doi = {10.2399/yod.23.1167895},
+    url = {https://dergipark.org.tr/en/pub/yuksekogretim/issue/77238/1167895}
   }
 ```
 
